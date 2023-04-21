@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Purilly</title>
+    </head>
+    
+    <body>
+        <h1>Purilly Window Cleaning Customer Database</h1>
+        <div id = "login_register">
+            <div id = "register">
+                <h2>Register</h2>
+                <div>First Name</div><input class="input" id="first_name">
+                <div>Last Name</div><input class="input" id="last_name">
+                <div>Email</div><input class="input" id="email">
+                <div>Password</div><input class="input" id="password">
+                <button id = "button-register">Register</button>
+            </div>
+            <div id = "login">
+                <h2>Sign In</h2>
+                <div>Email</div><input class="input" id="email-login">
+                <div>Password</div><input class="input" id="password-login">
+                <button id = "button-login">Sign in</button>
+                <p id = "error"></div>
+            </div>
+        </div>
+
+        <div id="fields">
+            <div>Enter Customer Name</div><input class="input" id="name">
+            <div>Enter Date Created</div><input class="input" id="date">
+            <div>Enter Number of Windows</div><input class="input" id="numWindows">
+            <div>Enter Customer Address</div><input class="input" id="address">
+            <div>Enter Price for Customer</div><input class="input" id="price">
+            <button id = "button-create_customer">Create Customer</button>
+        </div>
+        
+        <h2 id="customerList">
+            List of Customers:
+        </h2>
+        <ul id = "list_of_customers"></ul>
+
+        <script src="app.js"></script>
+    </body>
+</html>
