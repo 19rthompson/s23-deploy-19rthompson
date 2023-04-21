@@ -1,4 +1,4 @@
-
+var BASE_URL = "s23-deploy-19rthompson-production.up.railway.app";
 
 var createButton = document.querySelector("#button-create_customer");
 createButton.onclick=createCustomer;
@@ -18,7 +18,7 @@ loginButton.onclick = function(){
     data = "email="+email+"&password="+password;
 
     
-    fetch("http://localhost:8080/sessions",{
+    fetch(BASE_URL+"/sessions",{
             method:"POST",
             body: data,
             credentials: 'include',
@@ -48,7 +48,7 @@ function createCustomer() {
     var price = encodeURIComponent(document.querySelector("#price").value);
     data = "name="+name+"&date="+date+"&numWindows="+numWindows+"&address="+address+"&price="+price;
     if (name && date && numWindows && address && price){
-        fetch("http://localhost:8080/customers",{
+        fetch(BASE_URL+"/customers",{
             method:"POST",
             body: data,
             credentials: 'include',
@@ -81,7 +81,7 @@ function createUser() {
     console.log("fields:",first_name,last_name,email,password);
     data = "first_name="+first_name+"&last_name="+last_name+"&email="+email+"&password="+password;
     if (first_name&&last_name&&email&&password){
-        fetch("http://localhost:8080/users",{
+        fetch(BASE_URL+"/users",{
             method:"POST",
             body: data,
             credentials: 'include',
@@ -116,7 +116,7 @@ var listOfCustomers = document.querySelector("#list_of_customers");
 function loadCustomersFromServer(){
     
     listOfCustomers.innerHTML="";
-    fetch("http://localhost:8080/customers",{
+    fetch(BASE_URL+"/customers",{
         method: "GET",
         credentials: 'include',
         headers: {
@@ -224,7 +224,7 @@ function formatCustomerBox(customerBox,data){
     customerBox.appendChild(updateButton);
 }
 function deleteCustomerFromServer(customerID){
-    fetch("http://localhost:8080/customers/"+customerID,{
+    fetch(BASE_URL+"/customers/"+customerID,{
         method: "DELETE",
         credentials: 'include',
     }).then(function (response){
@@ -246,7 +246,7 @@ function replaceCustomer(data1){
 
     console.log("data = ",data);
 
-    fetch("http://localhost:8080/customers/"+data1[0],{
+    fetch(BASE_URL+"/customers/"+data1[0],{
             method:"PUT",
             body: data,
             credentials: 'include',
